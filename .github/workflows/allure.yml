@@ -1,4 +1,37 @@
-- name: Get Allure history
+name: Allure Report Automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Chrome Browser
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium pytest allure-pytest requests
+
+      - name: Run Tests with Allure
+        run: pytest --alluredir=allure-results
+        continue-on-error: true
+
+      - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
@@ -13,3 +46,11 @@
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 20
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
