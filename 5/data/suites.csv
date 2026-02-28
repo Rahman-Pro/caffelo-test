@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","0","test_homepage_title","tests","Sat Feb 28 11:34:06 UTC 2026","broken","Sat Feb 28 11:34:06 UTC 2026","","test_homepage","",""
+"","5239","test_api_status","tests","Sat Feb 28 11:34:01 UTC 2026","passed","Sat Feb 28 11:34:06 UTC 2026","","test_api_health","",""
+"","0","test_admin_login","tests","Sat Feb 28 11:34:10 UTC 2026","broken","Sat Feb 28 11:34:10 UTC 2026","","test_login","",""
+"","0","test_navigate_to_pos_direct","tests","Sat Feb 28 11:34:11 UTC 2026","broken","Sat Feb 28 11:34:11 UTC 2026","","test_navigation","",""
+"","0","test_check_url","tests","Sat Feb 28 11:34:10 UTC 2026","broken","Sat Feb 28 11:34:10 UTC 2026","","test_homepage","",""
